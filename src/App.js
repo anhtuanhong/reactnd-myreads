@@ -32,10 +32,9 @@ class App extends Component {
 
   statusChange = ( book, shelf ) => {
     BooksAPI.update( book, shelf )
-      .then( () =>{
+      .then( () => {
         BooksAPI.getAll()
           .then( (books) => {
-            console.log( 'Books', books )
             if( books.length > 0 ){
               this.setState( () => ({
                 books

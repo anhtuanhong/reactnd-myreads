@@ -11,17 +11,18 @@ class SearchForm extends Component {
   }
 
   queryBooks = (query) => {
+    this.setState( () => ({
+      query: query
+    }))
     BooksAPI.search( query )
       .then( (books) => {
         if( books && books.length > 0 ){
           this.setState( () => ({
-            books: books,
-            query: query
+            books: books
           }))
         }else{
           this.setState( () => ({
-            books: [],
-            query: query
+            books: []
           }))
         }
       })
@@ -29,7 +30,8 @@ class SearchForm extends Component {
 
   render() {
     const { books, query } = this.state
-    const { onStatusChange } = this.props
+    const { savedBooks, onStatusChange } = this.props
+
 
     return (
       <div className="search-books">
