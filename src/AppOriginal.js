@@ -1,7 +1,5 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
-import OpenSearch from './OpenSearch'
-
 import { Route } from 'react-router-dom'
 
 // import * as BooksAPI from './BooksAPI'
@@ -34,7 +32,7 @@ class BooksApp extends React.Component {
         <Route path='/search' render={ ( {history} ) => (
           <div className="search-books">
             <div className="search-books-bar">
-              <a className="close-search" onClick={ () => history.push('/') }>Close</a>
+              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -45,6 +43,7 @@ class BooksApp extends React.Component {
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
                 <input type="text" placeholder="Search by title or author"/>
+
               </div>
             </div>
             <div className="search-books-results">
@@ -53,7 +52,7 @@ class BooksApp extends React.Component {
           </div>
         )} />
           
-        <Route exact path='/' render={ ( history ) => (
+        <Route exact path='/' render={ () => (
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
@@ -97,7 +96,7 @@ class BooksApp extends React.Component {
                               </select>
                             </div>
                           </div>
-                          <div className="book-title">Harry Potter and the Sorcerers Stone</div>
+                          <div className="book-title">Harry Potter and the Sorcerer's Stone</div>
                           <div className="book-authors">J.K. Rowling</div>
                         </div>
                       </li>
@@ -167,7 +166,9 @@ class BooksApp extends React.Component {
                 </div>
               </div>
             </div>
-            <OpenSearch />
+            <div className="open-search">
+              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+            </div>
           </div>
         )} />
       </div>
