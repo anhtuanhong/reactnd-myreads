@@ -8,6 +8,6 @@ const OpenSearch = (props) => (
       className='to-search'
     >Add a book</Link>
   </div>
-);
+)
 
 export default OpenSearch;
