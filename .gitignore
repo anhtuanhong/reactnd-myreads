@@ -3,3 +3,4 @@ yarn.lock
 .DS_Store
 src/reactnd-myreads.sublime-project
 src/reactnd-myreads.sublime-workspace
+src/AppOriginal.js
