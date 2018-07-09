@@ -30,7 +30,7 @@ class SearchForm extends Component {
 
   render() {
     const { books, query } = this.state
-    const { savedBooks, onStatusChange } = this.props
+    const { onStatusChange } = this.props
 
 
     return (
